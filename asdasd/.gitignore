@@ -1,0 +1,25 @@
+.DS_Store
+
+# .Net
+bin/
+obj/
+
+#Rider
+.idea/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+
+/riderModule.iml
+# Локални настройки на базата и пароли
+appsettings.Development.json
+*.db
+*.db-journal
+
+# Резултати от тестове
+TestResults/
+
+.vs/
+_ReSharper.Caches/
+*.sln.dotSettings.user
