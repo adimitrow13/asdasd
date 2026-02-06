@@ -23,3 +23,18 @@ TestResults/
 .vs/
 _ReSharper.Caches/
 *.sln.dotSettings.user
+
+# Rider / JetBrains
+.idea/
+*.sln.dotSettings.user
+_ReSharper.Caches/
+
+# Бази данни и локални пароли
+*.db
+*.db-journal
+appsettings.Development.json
+
+
+.DS_Store
+.AppleDouble
+.LSOverride
