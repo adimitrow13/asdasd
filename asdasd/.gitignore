@@ -1,40 +1,28 @@
+# MAC
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# .Net
+
+# .NET
 bin/
 obj/
+[Tt]est[Rr]esults/
+*.db
+*.db-journal
 
-#Rider
+# RIDER
 .idea/
 *.sln.iml
 *.suo
 *.user
 *.userosscache
-
-/riderModule.iml
-# Локални настройки на базата и пароли
-appsettings.Development.json
-*.db
-*.db-journal
-
-# Резултати от тестове
-TestResults/
-
-.vs/
-_ReSharper.Caches/
-*.sln.dotSettings.user
-
-# Rider / JetBrains
-.idea/
 *.sln.dotSettings.user
 _ReSharper.Caches/
+riderModule.iml
 
-# Бази данни и локални пароли
-*.db
-*.db-journal
+# VSCODE
+.vscode/
+
+# sec
 appsettings.Development.json
-
-
-.DS_Store
-.AppleDouble
-.LSOverride
