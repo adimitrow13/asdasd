@@ -1,0 +1,10 @@
+@model asdasd.Models.Product
+
+<h1>Изтриване</h1>
+<p>Сигурни ли сте, че искате да изтриете <strong>@Model.Name</strong>?</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn-danger">Да, изтрий!</button>
+    <a asp-action="Index" class="btn-secondary">Отказ</a>
+</form>

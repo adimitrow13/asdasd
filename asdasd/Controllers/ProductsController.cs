@@ -13,13 +13,6 @@ public class ProductsController : Controller
     {
         _context = context;
     }
-    
-    //Показва всички продукти
-    public async Task<IActionResult> Index()
-    {
-        var products = await _context.Products.ToListAsync();
-        return View(products);
-    }
 
     public IActionResult Create()
     {
@@ -41,11 +34,41 @@ public class ProductsController : Controller
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null) return NotFound();
-        
-        var product = await _context.Products.FirstOrDefaultAsync(m => m.Id == id);
+        var product = await _context.Products.FindAsync(id);
         if (product == null) return NotFound();
-        
         return View(product);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(int id, Product product)
+    {
+        if (id != product.Id) return NotFound();
+        if (ModelState.IsValid)
+        {
+            _context.Update(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(product);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        
+        var product = await _context.Products
+            .FirstOrDefaultAsync(m => m.Id == id);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+        
+        return View(product); // Търсим delete.cshtml
     }
 
     [HttpPost, ActionName("Delete")]
@@ -61,5 +84,15 @@ public class ProductsController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-    
+    public async Task<IActionResult> Index(string? searchString)
+    {
+        var productsQuery = from p in _context.Products
+            select p;
+        if (!string.IsNullOrEmpty(searchString))
+        {
+            productsQuery = productsQuery.Where(s => s.Name!.ToLower().Contains(searchString.ToLower()));
+        }
+        return View(await productsQuery.ToListAsync());
+    }
+   
 }
