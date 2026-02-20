@@ -30,6 +30,20 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Продукти</a>
                     </li>
                 </ul>
+                <div class="navbar-collapse d-sm-inline-flex justify-conetnt-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Продукти</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
         </div>
     </nav>
